@@ -1,6 +1,6 @@
-FROM node:lts-alpine3.9
+FROM node:lts
 
-RUN apk update && apk add openjdk8
+RUN apt-get update && apt-get install default-jdk -y
 
 RUN npm install -g firebase-tools
 RUN firebase setup:emulators:firestore
