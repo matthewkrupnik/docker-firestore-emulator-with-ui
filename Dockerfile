@@ -10,7 +10,13 @@ WORKDIR /firestore
 COPY . .
 RUN chmod 755 entrypoint.sh
 
+WORKDIR /firestore/functions
+RUN npm install
+RUN npm run build
+WORKDIR /firestore
+
 EXPOSE 4000
+EXPOSE 5001
 EXPOSE 8080
 
 ENTRYPOINT ["./entrypoint.sh"]
