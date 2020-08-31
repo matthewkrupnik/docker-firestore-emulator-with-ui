@@ -3,10 +3,28 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
+  "pubsub": {
+    "port": 8085
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix ./functions run lint",
+      "npm --prefix ./functions run build"
+    ],
+    "source": "functions"
+  },
   "emulators": {
+    "functions": {
+      "host": "0.0.0.0",
+      "port": 5001
+    },
     "firestore": {
       "host": "0.0.0.0",
       "port": 8080
+    },
+    "pubsub": {
+      "host": "0.0.0.0",
+      "port": 8085
     },
     "ui": {
       "enabled": true,
