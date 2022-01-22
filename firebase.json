@@ -4,7 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "pubsub": {
-    "port": 8085
+    "port": PUSUB_PORT_PLACEHOLDER
   },
   "functions": {
     "predeploy": [
@@ -16,20 +16,20 @@
   "emulators": {
     "functions": {
       "host": "0.0.0.0",
-      "port": 5001
+      "port": FUNCTIONS_PORT_PLACEHOLDER
     },
     "firestore": {
       "host": "0.0.0.0",
-      "port": 8080
+      "port": FIRESTORE_PORT_PLACEHOLDER
     },
     "pubsub": {
       "host": "0.0.0.0",
-      "port": 8085
+      "port": PUSUB_PORT_PLACEHOLDER
     },
     "ui": {
       "enabled": true,
       "host": "0.0.0.0",
-      "port": 4000
+      "port": UI_PORT_PLACEHOLDER
     }
   }
 }
