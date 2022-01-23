@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.12
+FROM node:lts-alpine3.14
 
 RUN apk update && apk add openjdk11 && apk add bash
 
