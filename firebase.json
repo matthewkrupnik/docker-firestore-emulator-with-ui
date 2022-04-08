@@ -3,28 +3,10 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
-  "pubsub": {
-    "port": PUSUB_PORT_PLACEHOLDER
-  },
-  "functions": {
-    "predeploy": [
-      "npm --prefix ./functions run lint",
-      "npm --prefix ./functions run build"
-    ],
-    "source": "functions"
-  },
   "emulators": {
-    "functions": {
-      "host": "0.0.0.0",
-      "port": FUNCTIONS_PORT_PLACEHOLDER
-    },
     "firestore": {
       "host": "0.0.0.0",
       "port": FIRESTORE_PORT_PLACEHOLDER
-    },
-    "pubsub": {
-      "host": "0.0.0.0",
-      "port": PUSUB_PORT_PLACEHOLDER
     },
     "ui": {
       "enabled": true,

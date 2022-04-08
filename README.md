@@ -13,6 +13,9 @@ Container installs the firebase-toolkit from npm. It also installs the firestore
 Execute the container exposing the firestore server on the port 8200 instead of the standard 8080
 `docker run -e FIRESTORE_PORT=8200 -p 8200:8200 -p 4000:4000 -p 8085:8085 -p 5001:5001 matthewkrupnik/docker-firestore-emulator-with-ui`
 
+Run the container with only Firestore and UI enabled
+`docker run -e FIRESTORE_PORT=8200 -p 8200:8200 -p 4000:4000  jordanbalsamo/docker-firestore-emulator-with-ui`
+
 # Env variables and ports
 
 * FIRESTORE_PORT default to 8080
