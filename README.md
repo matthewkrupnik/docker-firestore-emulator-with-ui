@@ -8,15 +8,25 @@ Slightly modified to only run firestore with the UI for my own use-case.
 Container is running Alpine linux with Node LTS, Bash, and Openjdk11 installed.
 Container installs the firebase-toolkit from npm. It also installs the firestore and turns on the UI.
 
+
+# Build container from git
+
+At some stage, I'll push this image to Docker Hub, but for now, you can build and tag the image by running the below:
+
+```~$ docker build https://github.com/jordanbalsamo/docker-firestore-emulator-with-ui.git#master -t firestore-emulator-ui```
+
+Note: the rest of the commands in this README will assume you've built the image using this method.
+
 # Run container
 
 Run the container with firestore default ports
 
-```~$ docker run -p 8080:8080 -p 4000:4000 jordanbalsamo/docker-firestore-emulator-with-ui```
+```~$ docker run -p 8080:8080 -p 4000:4000 jordanbalsamo/firestore-emulator-ui`
+
 
 Run the container with custom ports
 
-```~$ docker run -e FIRESTORE_PORT=8200 -p 8200:8200 -p 4000:4000  jordanbalsamo/docker-firestore-emulator-with-ui```
+```~$ docker run -e FIRESTORE_PORT=8200 -p 8200:8200 -p 4000:4000 firestore-emulator-ui ```
 
 # Environment variables and ports
 
