@@ -1,24 +1,31 @@
-# Intro
-Fork of [https://github.com/matthewkrupnik/docker-firestore-emulator-with-ui](https://github.com/matthewkrupnik/docker-firestore-emulator-with-ui)
-to expose the ports of the emulator through environment variables
+# Overview
+Fork of the good work done here: [https://github.com/matthewkrupnik/docker-firestore-emulator-with-ui](https://github.com/matthewkrupnik/docker-firestore-emulator-with-ui)
+
+
+Slightly modified to only run firestore with the UI for my own use-case.
 
 
 Container is running Alpine linux with Node LTS, Bash, and Openjdk11 installed.
-Container installs the firebase-toolkit from npm. It also installs the firestore, pubsub, andfunctions emulator and turns on the UI.
+Container installs the firebase-toolkit from npm. It also installs the firestore and turns on the UI.
 
-# Execute container
+# Run container
 
-`docker run -p 8080:8080 -p 4000:4000 -p 8085:8085 -p 5001:5001 matthewkrupnik/docker-firestore-emulator-with-ui`
+Run the container with firestore default ports
 
-Execute the container exposing the firestore server on the port 8200 instead of the standard 8080
-`docker run -e FIRESTORE_PORT=8200 -p 8200:8200 -p 4000:4000 -p 8085:8085 -p 5001:5001 matthewkrupnik/docker-firestore-emulator-with-ui`
+```~$ docker run -p 8080:8080 -p 4000:4000 jordanbalsamo/docker-firestore-emulator-with-ui```
 
-# Env variables and ports
+Run the container with custom ports
+
+```~$ docker run -e FIRESTORE_PORT=8200 -p 8200:8200 -p 4000:4000  jordanbalsamo/docker-firestore-emulator-with-ui```
+
+# Environment variables and ports
+
+By default, the ports are set as follows:
 
 * FIRESTORE_PORT default to 8080
 * UI_PORT default to 4000
-* PUSUB_PORT default to 8085
-* FUNCTIONS_PORT default to 5001
+
+To modify the default ports, see above `Run the container with custom ports`.
 
 # Mountpoints
 
@@ -29,27 +36,5 @@ Execute the container exposing the firestore server on the port 8200 instead of 
 # Firestore
 
 To use firestore emulator the environment variable needs to be set.
-FIRESTORE_EMULATOR_HOST="localhost:8080"
 
-# PubSub
-
-PUBSUB_EMULATOR_HOST="localhost:8085"
-
-# Functions
-
-You functions folder needs to be volume mounted to /firestore/functions. The following npm packages are required:
-
-* "firebase-admin": "^8.10.0",
-* "firebase-functions": "^3.6.1"
-
-The container will run an npm install on the functions repository and the settings are as follows:
-
-```json
-"functions": {
-    "predeploy": [
-      "npm --prefix ./functions run lint",
-      "npm --prefix ./functions run build"
-    ],
-    "source": "functions"
-  }
-```
+```FIRESTORE_EMULATOR_HOST="localhost:8080" # remember to change this if customising default ports```
