@@ -20,7 +20,8 @@
     },
     "firestore": {
       "host": "0.0.0.0",
-      "port": FIRESTORE_PORT_PLACEHOLDER
+      "port": FIRESTORE_PORT_PLACEHOLDER,
+      "websocketPort": FIRESTORE_WSPORT_PLACEHOLDER
     },
     "pubsub": {
       "host": "0.0.0.0",

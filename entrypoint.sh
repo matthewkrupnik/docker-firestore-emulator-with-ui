@@ -1,6 +1,7 @@
 #!/bin/sh
 
 sed -i "s/FIRESTORE_PORT_PLACEHOLDER/$FIRESTORE_PORT/g" firebase.json
+sed -i "s/FIRESTORE_WSPORT_PLACEHOLDER/$FIRESTORE_WS_PORT/g" firebase.json
 sed -i "s/UI_PORT_PLACEHOLDER/$UI_PORT/g" firebase.json
 sed -i "s/PUSUB_PORT_PLACEHOLDER/$PUSUB_PORT/g" firebase.json
 sed -i "s/FUNCTIONS_PORT_PLACEHOLDER/$FUNCTIONS_PORT/g" firebase.json
