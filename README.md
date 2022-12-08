@@ -32,6 +32,8 @@ Execute the container exposing the firestore server on the port 8200 instead of 
 To use firestore emulator the environment variable needs to be set.
 FIRESTORE_EMULATOR_HOST="localhost:8080"
 
+Note the emulator is setup to run in singleproject mode with the project name: "dummy-project"
+
 # PubSub
 
 PUBSUB_EMULATOR_HOST="localhost:8085"
