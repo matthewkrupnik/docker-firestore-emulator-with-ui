@@ -1,6 +1,6 @@
-FROM node:lts-alpine3.14
+FROM node:16-bullseye-slim
 
-RUN apk update && apk add openjdk11 && apk add bash
+RUN apt update -y && apt install -y openjdk-11-jdk bash
 
 RUN npm install -g firebase-tools
 RUN firebase setup:emulators:firestore
